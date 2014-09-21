@@ -1,16 +1,15 @@
-from distutils.core import setup
 try:
-	from setuptools import setup
-except:
-	pass
+    from setuptools import setup
+except ImportError:
+    from distutils.core import setup
 
 setup(
-    name = "compressinja",
-    version = "0.0.2",
-    author = "Stanislav Feldman",
-    description = ("Jinja2 extension that removes whitespace between HTML tags."),
-    url = "https://github.com/stanislavfeldman/compressinja",
-    keywords = "jinja2 html compress",
+    name="compressinja",
+    version="0.0.3",
+    author="Stanislav Feldman",
+    description=("Jinja2 extension that removes whitespace between HTML tags."),
+    url="https://github.com/stanislavfeldman/compressinja",
+    keywords="jinja2 html compress",
     packages=['compressinja'],
-    install_requires = ["jinja2"],
+    install_requires=["jinja2"],
 )
