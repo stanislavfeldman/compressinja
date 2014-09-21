@@ -41,7 +41,7 @@ class HtmlCompressor(Extension):
                          'embed', 'col'))
     block_elements = set(('div', 'p', 'form', 'ul', 'ol', 'li', 'td', 'th',
                           'dl', 'dt', 'dd', 'blockquote', 'h1', 'h2', 'h3',
-                          'h4', 'h5', 'h6'))
+                          'h4', 'h5', 'h6', 'title'))
     breaking_rules = {
         'p': set(('div', 'p', 'form', 'ul', 'ol', 'li', 'table', 'tr',
                   'tbody', 'thead', 'tfoot', 'td', 'th', 'dl', 'dt', 'dd',
