@@ -257,3 +257,10 @@ class TestHtmlCompressor(unittest.TestCase):
             ),
             '<table><thead><th>This is header text</th></thead></table>',
         )
+
+    def test_doctype(self):
+        '''Verify !DOCTYPE tags are preserved.'''
+        self.assertEqual(
+            html_compress('<!DOCTYPE html><html></html>'),
+            '<!DOCTYPE html><html></html>',
+        )

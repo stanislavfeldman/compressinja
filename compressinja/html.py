@@ -12,7 +12,7 @@ from jinja2.lexer import Token, describe_token
 from jinja2 import TemplateSyntaxError
 
 
-_TAG_RE = re.compile(r'(?:<(/?)([a-zA-Z0-9_-]+)\s*|(>\s*))(?s)')
+_TAG_RE = re.compile(r'(?:<(/?)(!?[a-zA-Z0-9_-]+)\s*|(>\s*))(?s)')
 _WS_NORMALIZE_RE = re.compile(r'[ \t\r\n]+')
 
 
@@ -82,7 +82,7 @@ class HtmlCompressor(Extension):
         while ctx.stack and self.is_breaking(tag, ctx.stack[-1]):
             self.leave_tag(ctx.stack[-1], ctx)
         # Add the tag (as long as it isn't a self-closing tag)
-        if tag not in self.void_elements:
+        if tag not in self.void_elements and not tag.startswith('!'):
             ctx.stack.append(tag)
 
     def leave_tag(self, tag, ctx):
